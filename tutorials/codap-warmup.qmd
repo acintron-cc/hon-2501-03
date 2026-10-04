@@ -18,7 +18,7 @@ lang: en
 
 ## What you'll do
 
-- Make a bar graph of `c_charge_degree` (F = felony, M = misdemeanor), coloured by the outcome.
+- Make a bar graph of `c_charge_degree` (F = felony, M = misdemeanor), colored by the outcome.
 - Read the **base rate** for each group: the share of the group with label = 1.
 - Time: about 5 minutes.
 
@@ -42,7 +42,7 @@ Partner B students switch to Adult only in Exercise 1. Check that everyone has t
 
 Choose **File → Import… → Local File**, then drop `compas_classroom.csv` on the box (or click the box to choose it).
 
-![](media/codap/codap_step1.png){.r-stretch fig-alt="CODAP's Import Data window with Local File selected and a box labelled 'Drop file here or click here to select a file.'"}
+![](media/codap/codap_step1.png){.r-stretch fig-alt="CODAP's Import Data window with Local File selected and a box labeled 'Drop file here or click here to select a file.'"}
 
 **You should see:** a table named compas_classroom appears on the left.
 
@@ -66,7 +66,7 @@ The dots are not arranged yet; that comes in the next step.
 
 Drag the `c_charge_degree` column heading to the bottom of the graph (“Drag an attribute or click here”).
 
-![](media/codap/codap_step3.png){.r-stretch fig-alt="The graph now splits the dots into two columns labelled F and M, with c_charge_degree on the horizontal axis."}
+![](media/codap/codap_step3.png){.r-stretch fig-alt="The graph now splits the dots into two columns labeled F and M, with c_charge_degree on the horizontal axis."}
 
 **You should see:** the dots split into two columns, F and M.
 
@@ -76,33 +76,33 @@ Drag the column heading in the table, not a value in a row.
 
 ## Step 4 of 7: Turn dots into bars
 
-Click the graph, open **Config** on the right, and tick **Fuse Points into Bars** (Count).
+Click the graph, open **Config** on the right, and check **Fuse Points into Bars** (Count).
 
-![](media/codap/codap_step4.png){.r-stretch fig-alt="The Configuration menu beside the graph with 'Fuse Points into Bars' ticked and Count selected. The graph shows two bars, F taller than M."}
+![](media/codap/codap_step4.png){.r-stretch fig-alt="The Configuration menu beside the graph with 'Fuse Points into Bars' checked and Count selected. The graph shows two bars, F taller than M."}
 
 **You should see:** two bars; the F bar is taller than the M bar.
 
 ::: notes
-Config is the icon labelled Configuration in the panel to the right of the graph. The graph must be selected first.
+Config is the icon labeled Configuration in the panel to the right of the graph. The graph must be selected first.
 :::
 
 ## Step 5 of 7: Show the counts
 
-Open **Measure** and tick **Count**.
+Open **Measure** and check **Count**.
 
-![](media/codap/codap_step5.png){.r-stretch fig-alt="The Measure menu with Count ticked. The numbers 1949 and 1051 appear above the F and M bars."}
+![](media/codap/codap_step5.png){.r-stretch fig-alt="The Measure menu with Count checked. The numbers 1949 and 1051 appear above the F and M bars."}
 
 **You should see:** 1949 above the F bar and 1051 above the M bar.
 
 ::: notes
-These are the group sizes (n). Do not tick Percent; see the troubleshooting page.
+These are the group sizes (n). Do not check Percent; see the troubleshooting page.
 :::
 
-## Step 6 of 7: Colour by the outcome
+## Step 6 of 7: Color by the outcome
 
 Drag the `two_year_recid` column heading into the **middle** of the graph, not the left edge.
 
-![](media/codap/codap_step6.png){.r-stretch fig-alt="The bars are now coloured: orange for Recidivated at the bottom and purple for Survived on top. A legend under the graph names both colours."}
+![](media/codap/codap_step6.png){.r-stretch fig-alt="The bars are now colored: orange for Recidivated at the bottom and purple for Survived on top. A legend under the graph names both colors."}
 
 **You should see:** each bar in two parts: Recidivated at the bottom (orange), Survived on top (purple), with a legend.
 
@@ -141,10 +141,10 @@ Numbers recomputed from compas_classroom.csv, all 3000 rows.
 
 | What you see | Why | Fix |
 |---|---|---|
-| The graph stacked into rows instead of colouring | You dropped `two_year_recid` on the left edge | Undo, then drop it in the middle of the graph |
-| The legend shows a 0 to 1 colour scale | You used `label`, not `two_year_recid` | Drag `two_year_recid` onto the graph instead |
-| No totals above the bars | Count is off | Measure → tick Count |
-| 65% and 35% after ticking Percent | That is each bar's share of all people, not the base rate | Untick Percent; read the base rate from the hover tooltip |
+| The graph stacked into rows instead of coloring | You dropped `two_year_recid` on the left edge | Undo, then drop it in the middle of the graph |
+| The legend shows a 0 to 1 color scale | You used `label`, not `two_year_recid` | Drag `two_year_recid` onto the graph instead |
+| No totals above the bars | Count is off | Measure → check Count |
+| 65% and 35% after checking Percent | That is each bar's share of all people, not the base rate | Uncheck Percent; read the base rate from the hover tooltip |
 
 ::: notes
 The Percent mistake is the most common one: 65% and 35% are F and M as shares of all 3000 people.

@@ -139,7 +139,7 @@
 <section id="what-youll-do" class="slide level2">
 <h2>What you’ll do</h2>
 <ul>
-<li>Make a bar graph of <code>c_charge_degree</code> (F = felony, M = misdemeanor), coloured by the outcome.</li>
+<li>Make a bar graph of <code>c_charge_degree</code> (F = felony, M = misdemeanor), colored by the outcome.</li>
 <li>Read the <strong>base rate</strong> for each group: the share of the group with label = 1.</li>
 <li>Time: about 5 minutes.</li>
 </ul>
@@ -182,7 +182,7 @@
 <section id="step-1-of-7-import-the-file" class="slide level2">
 <h2>Step 1 of 7: Import the file</h2>
 <p>Choose <strong>File → Import… → Local File</strong>, then drop <code>compas_classroom.csv</code> on the box (or click the box to choose it).</p>
-<img data-src="media/codap/codap_step1.png" class="r-stretch" alt="CODAP's Import Data window with Local File selected and a box labelled 'Drop file here or click here to select a file.'">
+<img data-src="media/codap/codap_step1.png" class="r-stretch" alt="CODAP's Import Data window with Local File selected and a box labeled 'Drop file here or click here to select a file.'">
 <p><strong>You should see:</strong> a table named compas_classroom appears on the left.</p>
 <aside class="notes">
 <p>If the file does not show up in the chooser, check the Downloads folder.</p>
@@ -220,7 +220,7 @@
 <section id="step-3-of-7-put-c_charge_degree-on-the-bottom" class="slide level2">
 <h2>Step 3 of 7: Put c_charge_degree on the bottom</h2>
 <p>Drag the <code>c_charge_degree</code> column heading to the bottom of the graph (“Drag an attribute or click here”).</p>
-<img data-src="media/codap/codap_step3.png" class="r-stretch" alt="The graph now splits the dots into two columns labelled F and M, with c_charge_degree on the horizontal axis.">
+<img data-src="media/codap/codap_step3.png" class="r-stretch" alt="The graph now splits the dots into two columns labeled F and M, with c_charge_degree on the horizontal axis.">
 <p><strong>You should see:</strong> the dots split into two columns, F and M.</p>
 <aside class="notes">
 <p>Drag the column heading in the table, not a value in a row.</p>
@@ -238,11 +238,11 @@
 </section>
 <section id="step-4-of-7-turn-dots-into-bars" class="slide level2">
 <h2>Step 4 of 7: Turn dots into bars</h2>
-<p>Click the graph, open <strong>Config</strong> on the right, and tick <strong>Fuse Points into Bars</strong> (Count).</p>
-<img data-src="media/codap/codap_step4.png" class="r-stretch" alt="The Configuration menu beside the graph with 'Fuse Points into Bars' ticked and Count selected. The graph shows two bars, F taller than M.">
+<p>Click the graph, open <strong>Config</strong> on the right, and check <strong>Fuse Points into Bars</strong> (Count).</p>
+<img data-src="media/codap/codap_step4.png" class="r-stretch" alt="The Configuration menu beside the graph with 'Fuse Points into Bars' checked and Count selected. The graph shows two bars, F taller than M.">
 <p><strong>You should see:</strong> two bars; the F bar is taller than the M bar.</p>
 <aside class="notes">
-<p>Config is the icon labelled Configuration in the panel to the right of the graph. The graph must be selected first.</p>
+<p>Config is the icon labeled Configuration in the panel to the right of the graph. The graph must be selected first.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -257,11 +257,11 @@
 </section>
 <section id="step-5-of-7-show-the-counts" class="slide level2">
 <h2>Step 5 of 7: Show the counts</h2>
-<p>Open <strong>Measure</strong> and tick <strong>Count</strong>.</p>
-<img data-src="media/codap/codap_step5.png" class="r-stretch" alt="The Measure menu with Count ticked. The numbers 1949 and 1051 appear above the F and M bars.">
+<p>Open <strong>Measure</strong> and check <strong>Count</strong>.</p>
+<img data-src="media/codap/codap_step5.png" class="r-stretch" alt="The Measure menu with Count checked. The numbers 1949 and 1051 appear above the F and M bars.">
 <p><strong>You should see:</strong> 1949 above the F bar and 1051 above the M bar.</p>
 <aside class="notes">
-<p>These are the group sizes (n). Do not tick Percent; see the troubleshooting page.</p>
+<p>These are the group sizes (n). Do not check Percent; see the troubleshooting page.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -274,10 +274,10 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="step-6-of-7-colour-by-the-outcome" class="slide level2">
-<h2>Step 6 of 7: Colour by the outcome</h2>
+<section id="step-6-of-7-color-by-the-outcome" class="slide level2">
+<h2>Step 6 of 7: Color by the outcome</h2>
 <p>Drag the <code>two_year_recid</code> column heading into the <strong>middle</strong> of the graph, not the left edge.</p>
-<img data-src="media/codap/codap_step6.png" class="r-stretch" alt="The bars are now coloured: orange for Recidivated at the bottom and purple for Survived on top. A legend under the graph names both colours.">
+<img data-src="media/codap/codap_step6.png" class="r-stretch" alt="The bars are now colored: orange for Recidivated at the bottom and purple for Survived on top. A legend under the graph names both colors.">
 <p><strong>You should see:</strong> each bar in two parts: Recidivated at the bottom (orange), Survived on top (purple), with a legend.</p>
 <aside class="notes">
 <p>two_year_recid is the outcome (text) column: the same as label, in words. Dropping it on the left edge stacks the graph into rows instead.</p>
@@ -371,24 +371,24 @@
 </thead>
 <tbody>
 <tr class="odd">
-<td>The graph stacked into rows instead of colouring</td>
+<td>The graph stacked into rows instead of coloring</td>
 <td>You dropped <code>two_year_recid</code> on the left edge</td>
 <td>Undo, then drop it in the middle of the graph</td>
 </tr>
 <tr class="even">
-<td>The legend shows a 0 to 1 colour scale</td>
+<td>The legend shows a 0 to 1 color scale</td>
 <td>You used <code>label</code>, not <code>two_year_recid</code></td>
 <td>Drag <code>two_year_recid</code> onto the graph instead</td>
 </tr>
 <tr class="odd">
 <td>No totals above the bars</td>
 <td>Count is off</td>
-<td>Measure → tick Count</td>
+<td>Measure → check Count</td>
 </tr>
 <tr class="even">
-<td>65% and 35% after ticking Percent</td>
+<td>65% and 35% after checking Percent</td>
 <td>That is each bar’s share of all people, not the base rate</td>
-<td>Untick Percent; read the base rate from the hover tooltip</td>
+<td>Uncheck Percent; read the base rate from the hover tooltip</td>
 </tr>
 </tbody>
 </table>

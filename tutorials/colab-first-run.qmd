@@ -168,7 +168,7 @@ The recording does not run Section 3.4, so there is no screenshot.
 
 ## Meet Gemini
 
-Click the **Gemini** button at the bottom centre of the page (its tooltip says “Toggle Gemini”). Ask, for example: “Explain what the table in Section 3.1 shows, in plain words.”
+Click the **Gemini** button at the bottom center of the page (its tooltip says “Toggle Gemini”). Ask, for example: “Explain what the table in Section 3.1 shows, in plain words.”
 
 ![](media/colab/colab_step9.png){.r-stretch fig-alt="The notebook with the Gemini panel open on the right, showing Gemini's plain-words explanation of the Section 3.1 table and a text box below it."}
 

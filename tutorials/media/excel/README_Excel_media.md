@@ -14,7 +14,7 @@ Recorded in Microsoft Excel for Mac with compas_classroom.csv (all rows). Window
 
 1. File → Open, choose compas_classroom.csv (in your Downloads folder), and click Open.
 2. Save the file as an Excel Workbook (.xlsx): File → Save As, File Format: Excel Workbook (.xlsx), Save. A plain .csv file cannot keep the table or the Answers sheet.
-3. Click cell A1, press Cmd+T (Windows: Ctrl+T), keep "My table has headers" ticked, and click OK.
+3. Click cell A1, press Cmd+T (Windows: Ctrl+T), keep "My table has headers" checked, and click OK.
 4. On the Table tab (Windows: Table Design tab), change Table Name from Table1 to data and press Enter.
 5. Click + at the bottom to add a sheet; double-click its tab and name it Answers.
 6. In cell A1 of Answers, paste =COUNTIFS(data[c_charge_degree],"F") and press Enter. You should see 1949.
@@ -26,8 +26,8 @@ Recorded in Microsoft Excel for Mac with compas_classroom.csv (all rows). Window
 
 - **excel_step1.png:** Excel's Open window showing the Downloads folder with compas_classroom.csv selected. The personal folders in the sidebar are blurred.
 - **excel_step2.png:** Excel's Save As window with the name compas_classroom and File Format set to Excel Workbook (.xlsx). The personal folders in the sidebar are blurred.
-- **excel_step3.png:** The Create Table window over the data, showing the range $A$1:$R$3001 and a ticked box 'My table has headers', with the OK button highlighted.
-- **excel_step4.png:** The Table tab in Excel's ribbon with the Table Name box changed to 'data'; the data below now has coloured table rows and filter arrows in the header row.
+- **excel_step3.png:** The Create Table window over the data, showing the range $A$1:$R$3001 and a checked box 'My table has headers', with the OK button highlighted.
+- **excel_step4.png:** The Table tab in Excel's ribbon with the Table Name box changed to 'data'; the data below now has colored table rows and filter arrows in the header row.
 - **excel_step5.png:** The sheet tabs at the bottom of Excel, with a new tab being named Answers next to the compas_classroom tab.
 - **excel_step6.png:** The Answers sheet with 1949 in cell A1.
 - **excel_step7.png:** Cell A2 shows 983; the formula bar shows =COUNTIFS(data[c_charge_degree],"F",data[label],1).

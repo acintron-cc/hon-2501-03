@@ -10,16 +10,16 @@ Self-paced Quarto revealjs tutorials, one step per slide, for HON-2501-3. Publis
 | `index.qmd` / `index.html` | Landing page linking to the four tutorials and the datasets folder. |
 | `codap-warmup.qmd` / `.html` | CODAP warm-up on compas_classroom.csv, `c_charge_degree` (7 steps). |
 | `excel-warmup.qmd` / `.html` | Excel warm-up on the same file (9 steps, Mac with Windows differences). |
-| `codap-grouping.qmd` / `.html` | CODAP grouped table: Part A base rates (text only, image slots commented out in the .qmd), Part B confusion-matrix counts (9 steps with stills). |
+| `codap-grouping.qmd` / `.html` | CODAP grouped table: Part A base rates (5 steps with stills, plus an optional video), Part B confusion-matrix counts (9 steps with stills). |
 | `colab-first-run.qmd` / `.html` | First run of `notebooks/fairness_lesson.ipynb` in Colab (8 steps, Gemini, debugging). |
-| `styles.scss` | Shared slide theme (colours checked at 4.5:1 or better). |
+| `styles.scss` | Shared slide theme (colors checked at 4.5:1 or better). |
 | `*_files/` | Support files Quarto made for each HTML page (reveal.js, fonts, CSS). **Needed online; keep next to the HTML.** |
 | `media/codap/`, `media/excel/`, `media/codap-grouping/`, `media/colab/` | Screenshots, the optional silent MP4s and their README (steps as text, alt text). |
 | `README_tutorials.md` | This file. |
 
 To edit: change a `.qmd`, then run `quarto render <file>.qmd` in this folder (Quarto 1.4 or later). Do not add `embed-resources: true`: it would embed the MP4s and make the pages huge.
 
-Part A image slots in `codap-grouping.qmd`: look for lines starting `<!-- ![](media/codap-grouping/`. Save the screenshot under that file name in `media/codap-grouping/`, remove the `<!--` and `-->`, check the alt text, and re-render.
+Two image slots in `codap-grouping.qmd` are still commented out (the "Careful" page and "Undo the grouping"): look for lines starting `<!-- ![](media/codap-grouping/`. To add one, save the screenshot under that file name in `media/codap-grouping/`, remove the `<!--` and `-->`, check the alt text, and re-render.
 
 ## Publishing
 

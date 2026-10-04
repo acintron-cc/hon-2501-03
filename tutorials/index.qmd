@@ -12,7 +12,7 @@ Step-by-step tutorials for Session 1, one step per page. In each pair, partners 
 
 ## CODAP warm-up
 
-**For the partner using CODAP.** Make a bar graph of `c_charge_degree` in the COMPAS file, coloured by the outcome, and read each group's base rate. About 5 minutes.
+**For the partner using CODAP.** Make a bar graph of `c_charge_degree` in the COMPAS file, colored by the outcome, and read each group's base rate. About 5 minutes.
 [Open the CODAP warm-up](codap-warmup.html)
 
 ## Excel warm-up

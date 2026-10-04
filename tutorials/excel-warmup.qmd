@@ -64,9 +64,9 @@ If students skip this, the table and Answers sheet vanish when they close the fi
 
 ## Step 3 of 9: Make it a table
 
-Click cell A1, press **Cmd+T** (Windows: **Ctrl+T**), keep “My table has headers” ticked, and click **OK**.
+Click cell A1, press **Cmd+T** (Windows: **Ctrl+T**), keep “My table has headers” checked, and click **OK**.
 
-![](media/excel/excel_step3.png){.r-stretch fig-alt="The Create Table window over the data, showing the range $A$1:$R$3001 and a ticked box 'My table has headers', with the OK button highlighted."}
+![](media/excel/excel_step3.png){.r-stretch fig-alt="The Create Table window over the data, showing the range $A$1:$R$3001 and a checked box 'My table has headers', with the OK button highlighted."}
 
 **You should see:** the range \$A\$1:\$R\$3001, which is the header row plus 3000 people.
 
@@ -78,9 +78,9 @@ A table lets the formulas use column names like data[label] instead of cell rang
 
 On the **Table** tab (Windows: **Table Design** tab), change Table Name from Table1 to `data` and press Enter.
 
-![](media/excel/excel_step4.png){.r-stretch fig-alt="The Table tab in Excel's ribbon with the Table Name box changed to 'data'; the data below now has coloured table rows and filter arrows in the header row."}
+![](media/excel/excel_step4.png){.r-stretch fig-alt="The Table tab in Excel's ribbon with the Table Name box changed to 'data'; the data below now has colored table rows and filter arrows in the header row."}
 
-**You should see:** coloured table rows and filter arrows in the header row.
+**You should see:** colored table rows and filter arrows in the header row.
 
 ::: notes
 The name must be exactly data (lower case) or the formulas give #NAME?.
@@ -201,6 +201,8 @@ Use the same three formulas with your protected attribute instead of `c_charge_d
 - **Partner B (Adult):** `sex`, with "Female" and "Male".
 
 Remember to save your own file as .xlsx and make it a table named `data` too.
+
+Type your results into the handout as numbers, not formulas.
 
 [Optional: watch all the steps in one silent video (about 100 s)](media/excel/Excel_warmup_steps_labeled.mp4){target="_blank"}. Everything in the video is in the steps above.
 
