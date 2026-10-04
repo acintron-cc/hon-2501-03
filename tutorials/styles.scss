@@ -1,0 +1,145 @@
+/*-- scss:defaults --*/
+
+// Colours. Every text colour is at least 4.5:1 on its background (WCAG AA).
+//   #16202A dark text   on #FFFFFF white      16.48:1
+//   #0B6E84 dark teal   on #FFFFFF white       5.87:1  (links)
+//   #16202A dark text   on #F2F5F7 code tint  15.05:1
+//   #16202A dark text   on #FDF0EA warn tint  14.78:1
+// #0F8BA6 (accent teal, 3.99:1) and #E0622E (warning orange, 3.53:1) are too light
+// for text on white, so they are used only for borders, the progress bar and controls.
+$text-dark: #16202A;
+$accent-teal: #0F8BA6;
+$link-teal: #0B6E84;
+$warn-orange: #E0622E;
+$code-tint: #F2F5F7;
+$warn-tint: #FDF0EA;
+
+$body-bg: #FFFFFF;
+$body-color: $text-dark;
+$link-color: $link-teal;
+$presentation-heading-color: $text-dark;
+$presentation-font-size-root: 30px;
+$presentation-h1-font-size: 1.6em;
+$presentation-h2-font-size: 1.25em;
+$presentation-h3-font-size: 1.05em;
+$code-bg: $code-tint;
+$code-color: $text-dark;
+$code-block-bg: $code-tint;
+$code-block-font-size: 0.9em;
+
+/*-- scss:rules --*/
+
+.reveal {
+  color: $text-dark;
+}
+
+// Slide headings: a thin orange rule underneath (border only, never text).
+.reveal h2 {
+  border-bottom: 4px solid $warn-orange;
+  padding-bottom: 0.15em;
+  margin-bottom: 0.4em;
+}
+
+.reveal a {
+  color: $link-teal;
+  text-decoration: underline;
+}
+
+// Body text never smaller than 28px.
+.reveal p,
+.reveal li,
+.reveal td,
+.reveal th {
+  font-size: 30px;
+  line-height: 1.3;
+}
+
+.reveal table {
+  font-size: 28px;
+}
+.reveal table td,
+.reveal table th {
+  font-size: 28px;
+  padding: 0.25em 0.5em;
+  color: $text-dark;
+}
+
+// Code blocks (formulas): dark text on a light tint, large enough to read.
+.reveal pre,
+.reveal div.sourceCode {
+  background-color: $code-tint;
+  border-left: 6px solid $accent-teal;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.reveal pre code {
+  color: $text-dark;
+  background-color: $code-tint;
+  font-size: 28px;
+  line-height: 1.3;
+  max-height: none;
+}
+.reveal code {
+  color: $text-dark;
+}
+
+// Screenshots: a thin teal frame so the image edge is visible.
+.reveal img.r-stretch,
+.reveal .r-stretch img {
+  border: 2px solid $accent-teal;
+  box-sizing: border-box;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+// Warning box: orange border, dark text on a light tint.
+.reveal .warn {
+  border-left: 8px solid $warn-orange;
+  background-color: $warn-tint;
+  color: $text-dark;
+  padding: 0.4em 0.7em;
+  margin: 0.4em 0;
+}
+
+// Optional / "If time" tag.
+.reveal .optional-tag {
+  display: inline-block;
+  border: 3px solid $accent-teal;
+  color: $text-dark;
+  padding: 0 0.4em;
+  font-weight: bold;
+}
+
+// Progress bar and arrows: accent teal (non-text UI, 3.99:1 is above the 3:1 needed).
+.reveal .progress span {
+  background-color: $accent-teal;
+}
+.reveal .controls {
+  color: $accent-teal;
+}
+
+// Slide number: dark text on white.
+.reveal .slide-number {
+  color: $text-dark !important;
+  background-color: #FFFFFF !important;
+  font-size: 22px;
+}
+
+// Part divider slides: larger heading, teal bar on the left.
+.reveal .slides section.divider {
+  border-left: 12px solid $accent-teal;
+  padding-left: 0.8em;
+  box-sizing: border-box;
+}
+.reveal .slides section.divider h2 {
+  font-size: 1.6em;
+  border-bottom: none;
+  margin-top: 1.5em;
+}
+
+// Inline code keeps its spacing, so printed output matches the notebook exactly.
+.reveal p code,
+.reveal li code,
+.reveal td code {
+  white-space: pre-wrap;
+}

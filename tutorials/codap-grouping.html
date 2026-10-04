@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="codap-grouping_files/libs/clipboard/clipboard.min.js"></script>
+<script src="codap-grouping_files/libs/quarto-html/tabby.min.js"></script>
+<script src="codap-grouping_files/libs/quarto-html/popper.min.js"></script>
+<script src="codap-grouping_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="codap-grouping_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="codap-grouping_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="codap-grouping_files/libs/quarto-html/quarto-syntax-highlighting-f8b45d2e6062d3f0773618a8522056e4.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.9.38">
+
+  <title>CODAP grouping: exact counts</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="codap-grouping_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="codap-grouping_files/libs/revealjs/dist/reveal.css">
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="codap-grouping_files/libs/revealjs/dist/theme/quarto-cd14c394d085176702008bc3ddd0bfa8.css">
+  <link href="codap-grouping_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="codap-grouping_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="codap-grouping_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="codap-grouping_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">CODAP grouping: exact counts</h1>
+  <p class="subtitle">Algorithmic Fairness · Session 1 · Exercises 1 and 2 · about 10 minutes</p>
+
+<div class="quarto-title-authors">
+</div>
+
+</section>
+<section id="what-youll-do" class="slide level2">
+<h2>What you’ll do</h2>
+<p>Get exact counts in CODAP’s case table with formulas, practising on <code>compas_classroom.csv</code> and <code>c_charge_degree</code> first.</p>
+<ul>
+<li><strong>Part A · Base rates by group</strong> (Exercise 1): n, positives and base_rate for each group. About 5 minutes.</li>
+<li><strong>Part B · One confusion matrix per group</strong> (Exercise 2): TP, FN, FP and TN for each group, on test rows. About 5 minutes.</li>
+</ul>
+<p><strong>How to move:</strong> right arrow key or space bar. Esc shows all slides.</p>
+<aside class="notes">
+<p>Students practise on the warm-up file and column, then repeat with their own dataset and protected attribute.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="before-you-start" class="slide level2">
+<h2>Before you start</h2>
+<ul>
+<li>Have <code>compas_classroom.csv</code> open in CODAP, as in the warm-up. (<a href="https://github.com/acintron-cc/hon-2501-03/blob/main/datasets/compas_classroom.csv">compas_classroom.csv on GitHub</a>; <a href="https://codap.concord.org">CODAP</a>)</li>
+<li>Formulas are in boxes with a copy button. Copy them; don’t retype them.</li>
+<li>When you have practised, do the same with your own file and group column: <code>race_group</code> (Partner A, COMPAS) or <code>sex</code> (Partner B, Adult).</li>
+</ul>
+<aside class="notes">
+<p>If a student closed CODAP after the warm-up, they re-import the file: File → Import… → Local File.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="part-a-base-rates-by-group" class="slide level2 divider">
+<h2>Part A · Base rates by group</h2>
+<p>For Exercise 1. Five steps, then two short tips.</p>
+<aside class="notes">
+<p>Part A has no screenshots yet; the steps are text only.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="part-a-step-1-of-5-group-the-table" class="slide level2">
+<h2>Part A · Step 1 of 5: Group the table</h2>
+<p>Drag the <code>c_charge_degree</code> column heading to the <strong>left edge</strong> of the case table.</p>
+<!-- ![](media/codap-grouping/partA_step1.png){.r-stretch fig-alt="The CODAP case table split in two: on the left a group part with one row each for F and M, on the right the people. c_charge_degree is now the only column of the left part."} -->
+<p><strong>You should see:</strong> the table splits: one row per group on the left (F and M), the people on the right.</p>
+<aside class="notes">
+<p>The left part’s title bar becomes yellow and names the grouping, e.g.&nbsp;c_charge_degrees (2 cases).</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="part-a-step-2-of-5-add-a-column-n" class="slide level2">
+<h2>Part A · Step 2 of 5: Add a column n</h2>
+<p>In the <strong>left part</strong>, click <strong>+</strong> to add a column, type <code>n</code> as its name, and press Enter.</p>
+<!-- ![](media/codap-grouping/partA_step2.png){.r-stretch fig-alt="The left (group) part of the table with a new, empty column named n next to c_charge_degree."} -->
+<p><strong>You should see:</strong> a new, empty column named n in the left part.</p>
+<aside class="notes">
+<p>The + is on the yellow title bar of the left part.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="part-a-step-3-of-5-count-the-people" class="slide level2">
+<h2>Part A · Step 3 of 5: Count the people</h2>
+<p>Click the <code>n</code> heading → <strong>Edit Formula…</strong>, type this formula, then click <strong>Apply</strong>:</p>
+<pre><code>count()</code></pre>
+<!-- ![](media/codap-grouping/partA_step3.png){.r-stretch fig-alt="The left part of the table with the n column showing 1949 for F and 1051 for M."} -->
+<p><strong>You should see:</strong> F 1949, M 1051.</p>
+<aside class="notes">
+<p>In the group part, count() counts the people in each group.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="part-a-step-4-of-5-count-label-1" class="slide level2">
+<h2>Part A · Step 4 of 5: Count label = 1</h2>
+<p>In the left part, add a column named <code>positives</code> with this formula:</p>
+<pre><code>count(label, label=1)</code></pre>
+<!-- ![](media/codap-grouping/partA_step4.png){.r-stretch fig-alt="The left part of the table with a positives column showing 983 for F and 382 for M, next to n."} -->
+<p><strong>You should see:</strong> F 983, M 382.</p>
+<aside class="notes">
+<p>Read it as: count the rows where label equals 1.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="part-a-step-5-of-5-the-base-rate" class="slide level2">
+<h2>Part A · Step 5 of 5: The base rate</h2>
+<p>In the left part, add a column named <code>base_rate</code> with this formula. It uses the two columns you just made:</p>
+<pre><code>positives / n</code></pre>
+<p>The base rate is the share of the group with label = 1, so it is positives divided by n.</p>
+<!-- ![](media/codap-grouping/partA_step5.png){.r-stretch fig-alt="The left part of the table with columns n, positives and base_rate: F 1949, 983, 0.5044; M 1051, 382, 0.3635."} -->
+<p><strong>You should see:</strong> F 0.504, M 0.363.</p>
+<aside class="notes">
+<p>CODAP may round the display to 0.5 and 0.36; the precision tip comes two slides later.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="careful-use-the-left-part" class="slide level2">
+<h2>Careful: use the left part</h2>
+<div class="warn">
+<p>Add n, positives and base_rate in the <strong>LEFT</strong> (group) part.</p>
+<p>In the right part, <code>count()</code> counts the whole file and shows <strong>3000</strong> on every row.</p>
+</div>
+<p>If you see 3000 on every row, delete that column and add it again in the left part.</p>
+<!-- ![](media/codap-grouping/partA_careful.png){.r-stretch fig-alt="A column named n added by mistake in the right (people) part of the table, showing 3000 on every row."} -->
+<aside class="notes">
+<p>This is the most common Part A mistake.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="tip-show-more-decimals" class="slide level2">
+<h2>Tip: show more decimals</h2>
+<p>CODAP may show base_rate as 0.5 and 0.36.</p>
+<p>Click the <code>base_rate</code> heading → <strong>Edit Attribute Properties…</strong> → set <strong>Precision</strong> to 4.</p>
+<!-- ![](media/codap-grouping/partA_precision.png){.r-stretch fig-alt="The Edit Attribute Properties window for base_rate with Precision set to 4; behind it base_rate shows 0.5044 for F and 0.3635 for M."} -->
+<p><strong>You should see:</strong> 0.5044 and 0.3635.</p>
+<aside class="notes">
+<p>These match the Part B recording, which shows base rate with 4 decimals.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="part-b-one-confusion-matrix-per-group" class="slide level2 divider">
+<h2>Part B · One confusion matrix per group</h2>
+<p>For Exercise 2. Keep the table grouped from Part A; you will undo the grouping at the very end.</p>
+<aside class="notes">
+<p>Part B starts from the grouped table with n, positives and base_rate already in the left part.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="part-b-in-two-steps" class="slide level2">
+<h2>Part B in two steps</h2>
+<ol type="1">
+<li>In the <strong>right part</strong> (the people), give each person a short code: which rows (test or train), then Actual (label), then Predicted.</li>
+<li>In the <strong>left part</strong> (the groups), count each code.</li>
+</ol>
+<p>We use only <strong>test rows</strong>: rows the model never learned from.</p>
+<aside class="notes">
+<p>Do not join conditions with “and” inside count(): in CODAP v3.1.0 that fails with “Invalid arguments for multiply operator”. The two-step code avoids that and avoids nested if().</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="part-b-step-1-of-9-add-a-column-for-people" class="slide level2">
+<h2>Part B · Step 1 of 9: Add a column for people</h2>
+<p>Scroll the people’s part (blue bar “cases (3000 cases)”) to the far right, then click the <strong>+</strong> at the end of that bar.</p>
+<img data-src="media/codap-grouping/grouping_step1.png" class="r-stretch" alt="The people's part of the CODAP table, scrolled to the right, with a new column named newAttr at the right end next to predicted_threshold.">
+<p><strong>You should see:</strong> a new column called newAttr at the right end.</p>
+<aside class="notes">
+<p>The blue bar belongs to the people (cases); the yellow bar belongs to the groups.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="careful-the-blue-bar-not-the-yellow-bar" class="slide level2">
+<h2>Careful: the blue bar, not the yellow bar</h2>
+<div class="warn">
+<p>Add this column with the <strong>+</strong> on the <strong>blue</strong> “cases (3000 cases)” bar.</p>
+<p>If you use the <strong>+</strong> on the <strong>yellow</strong> group bar on the left (“c_charge_degrees (2 cases)”), the formula shows “invalid…” on every group row.</p>
+</div>
+<p>Fix: delete that column and add it again from the blue bar.</p>
+<aside class="notes">
+<p>Instructor-tested: a cell column added on the yellow group bar gives “invalid…” on every group row. No screenshot of this.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="part-b-step-2-of-9-name-it-cell" class="slide level2">
+<h2>Part B · Step 2 of 9: Name it cell</h2>
+<p>Type <code>cell</code> as the new column’s name and press Enter. You choose this name.</p>
+<img data-src="media/codap-grouping/grouping_step2.png" class="r-stretch" alt="The same table with the new column renamed cell; the column is still empty.">
+<p><strong>You should see:</strong> the column is now called cell, still empty.</p>
+<aside class="notes">
+<p>Any name works, but the formulas later use cell.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="part-b-step-3-of-9-build-the-code" class="slide level2">
+<h2>Part B · Step 3 of 9: Build the code</h2>
+<p>Click the <code>cell</code> heading → <strong>Edit Formula…</strong>, type this formula, then click <strong>Apply</strong>:</p>
+<pre><code>split + label + predicted</code></pre>
+<img data-src="media/codap-grouping/grouping_step3.png" class="r-stretch" alt="The Edit Formula window for the attribute cell, with the formula split + label + predicted typed in and the pointer on Apply.">
+<p><strong>You should see:</strong> the formula in the Edit Formula window, ready to apply.</p>
+<aside class="notes">
+<p>CODAP joins text and numbers with +, so this builds a short text code for each row.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="part-b-step-4-of-9-read-the-codes" class="slide level2">
+<h2>Part B · Step 4 of 9: Read the codes</h2>
+<p>Look at the <code>cell</code> column: each row’s code joins its split, label and predicted values.</p>
+<img data-src="media/codap-grouping/grouping_step4.png" class="r-stretch" alt="The cell column now filled with codes such as test00, train01, train00, train11 and test01, one per row.">
+<p><strong>You should see:</strong> codes such as test11, test01, train00. A test row with label 1 and predicted 1 shows test11.</p>
+<aside class="notes">
+<p>Point out one test row and read its code aloud: test, then Actual, then Predicted.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="what-each-code-means" class="slide level2">
+<h2>What each code means</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Code</th>
+<th>Actual (label)</th>
+<th>Predicted</th>
+<th>Cell of the matrix</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>test11</td>
+<td>1</td>
+<td>1</td>
+<td>TP</td>
+</tr>
+<tr class="even">
+<td>test10</td>
+<td>1</td>
+<td>0</td>
+<td>FN</td>
+</tr>
+<tr class="odd">
+<td>test01</td>
+<td>0</td>
+<td>1</td>
+<td>FP</td>
+</tr>
+<tr class="even">
+<td>test00</td>
+<td>0</td>
+<td>0</td>
+<td>TN</td>
+</tr>
+</tbody>
+</table>
+<p>Read a code as: which rows, then Actual, then Predicted. Training rows start with <code>train</code>.</p>
+<aside class="notes">
+<p>Same layout as the handout’s confusion-matrix table.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="why-only-test-codes" class="slide level2">
+<h2>Why only test codes?</h2>
+<p>We count only the test codes, because the model never saw those rows.</p>
+<p>Training codes are there too, but counting them would make the model look better than it is.</p>
+<aside class="notes">
+<p>Test rows: split = test. COMPAS has 900 test rows in all.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="part-b-step-5-of-9-add-tp-to-the-groups" class="slide level2">
+<h2>Part B · Step 5 of 9: Add TP to the groups</h2>
+<p>Scroll back left, click the <strong>+</strong> on the yellow group title bar (“c_charge_degrees (2 cases)”), type <code>TP</code>, and press Enter.</p>
+<img data-src="media/codap-grouping/grouping_step5.png" class="r-stretch" alt="The grouped table with rows F and M showing n, positives and base rate (1949, 983, 0.5044 and 1051, 382, 0.3635) and a new empty column named TP.">
+<p><strong>You should see:</strong> a new, empty TP column next to n, positives and base_rate.</p>
+<aside class="notes">
+<p>Now we are back in the left (group) part, where counts are per group.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="part-b-step-6-of-9-count-tp" class="slide level2">
+<h2>Part B · Step 6 of 9: Count TP</h2>
+<p>Click the <code>TP</code> heading → <strong>Edit Formula…</strong>, type this formula, then click <strong>Apply</strong>:</p>
+<pre><code>count(cell, cell="test11")</code></pre>
+<img data-src="media/codap-grouping/grouping_step6.png" class="r-stretch" alt="The TP column shows 190 for F and 42 for M.">
+<p><strong>You should see:</strong> F 190, M 42. Same pattern as positives: count the rows where a column equals a value.</p>
+<aside class="notes">
+<p>TP: Actual 1, Predicted 1 (test11). Verified against compas_classroom.csv.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="part-b-step-7-of-9-count-fn" class="slide level2">
+<h2>Part B · Step 7 of 9: Count FN</h2>
+<p>Add a column <code>FN</code> in the left part with this formula:</p>
+<pre><code>count(cell, cell="test10")</code></pre>
+<img data-src="media/codap-grouping/grouping_step7.png" class="r-stretch" alt="The FN column, next to TP, shows 102 for F and 75 for M.">
+<p><strong>You should see:</strong> F 102, M 75.</p>
+<aside class="notes">
+<p>FN: Actual 1, Predicted 0 (test10). Verified against compas_classroom.csv.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="part-b-step-8-of-9-count-fp" class="slide level2">
+<h2>Part B · Step 8 of 9: Count FP</h2>
+<p>Add a column <code>FP</code> in the left part with this formula:</p>
+<pre><code>count(cell, cell="test01")</code></pre>
+<img data-src="media/codap-grouping/grouping_step8.png" class="r-stretch" alt="The FP column shows 112 for F and 23 for M.">
+<p><strong>You should see:</strong> F 112, M 23.</p>
+<aside class="notes">
+<p>FP: Actual 0, Predicted 1 (test01). Verified against compas_classroom.csv.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="part-b-step-9-of-9-count-tn" class="slide level2">
+<h2>Part B · Step 9 of 9: Count TN</h2>
+<p>Add a column <code>TN</code> in the left part with this formula:</p>
+<pre><code>count(cell, cell="test00")</code></pre>
+<img data-src="media/codap-grouping/grouping_step9.png" class="r-stretch" alt="The finished group table: for F, TP 190, FN 102, FP 112, TN 181; for M, TP 42, FN 75, FP 23, TN 175.">
+<p><strong>You should see:</strong> F 181, M 175.</p>
+<aside class="notes">
+<p>TN: Actual 0, Predicted 0 (test00). Verified against compas_classroom.csv.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="check-your-numbers" class="slide level2">
+<h2>Check your numbers</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>c_charge_degree</th>
+<th>TP</th>
+<th>FN</th>
+<th>FP</th>
+<th>TN</th>
+<th>Test rows</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>F (felony)</td>
+<td>190</td>
+<td>102</td>
+<td>112</td>
+<td>181</td>
+<td>585</td>
+</tr>
+<tr class="even">
+<td>M (misdemeanor)</td>
+<td>42</td>
+<td>75</td>
+<td>23</td>
+<td>175</td>
+<td>315</td>
+</tr>
+</tbody>
+</table>
+<p>Check: TP + FN + FP + TN equals the group’s number of test rows.</p>
+<aside class="notes">
+<p>Recomputed from compas_classroom.csv, test rows, original model (predicted).</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="last-step-undo-the-grouping" class="slide level2">
+<h2>Last step: Undo the grouping</h2>
+<p>Record your numbers first. Then drag the <code>c_charge_degree</code> column heading back into the right part of the table.</p>
+<!-- ![](media/codap-grouping/undo_grouping.png){.r-stretch fig-alt="The case table back in one part, with c_charge_degree among the people's columns after it was dragged back to the right."} -->
+<p><strong>You should see:</strong> one table again, one row per person.</p>
+<aside class="notes">
+<p>Group columns (n, positives, TP…) may disappear when the grouping is undone, so students record numbers in Answers first. Check this in CODAP before class.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="next-your-own-dataset" class="slide level2">
+<h2>Next: your own dataset</h2>
+<p>Do Parts A and B again on your own file, with your group column instead of <code>c_charge_degree</code>:</p>
+<ul>
+<li><strong>Partner A: COMPAS</strong>, <code>race_group</code>: African-American and Caucasian (ignore the Other row). Test rows: 463 and 307.</li>
+<li><strong>Partner B: Adult</strong>, <code>sex</code>: Female and Male. Test rows: 200 and 400.</li>
+</ul>
+<p><a href="media/codap-grouping/CODAP_grouping_steps_labeled.mp4" target="_blank">Optional: watch all the Part B steps in one silent video (about 3.5 min)</a>. Everything in the video is in the steps above.</p>
+<aside class="notes">
+<p>The test-row totals come from the handout’s Exercise 2 check. The video is 3 min 26 s.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+
+</section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="codap-grouping_files/libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="codap-grouping_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="codap-grouping_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="codap-grouping_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="codap-grouping_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="codap-grouping_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="codap-grouping_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="codap-grouping_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="codap-grouping_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="codap-grouping_files/libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': false,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: true,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1280,
+
+        height: 720,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp('/' + window.location.host + '/');
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>

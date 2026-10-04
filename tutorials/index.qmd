@@ -1,0 +1,35 @@
+---
+title: "Algorithmic Fairness · Tool tutorials"
+subtitle: "HON-2501-3 · Responsible AI · Session 1"
+format:
+  html:
+    theme: [default, styles.scss]
+    toc: false
+lang: en
+---
+
+Step-by-step slide tutorials for Session 1, one step per slide. In each pair, partners use different tools: one uses **CODAP**, the other **Excel**. Find the tutorials for your tool below. Everyone does the Colab tutorial at the end. Move through the slides with the arrow keys or the space bar.
+
+## CODAP warm-up
+
+**For the partner using CODAP.** Make a bar graph of `c_charge_degree` in the COMPAS file, coloured by the outcome, and read each group's base rate. About 5 minutes.
+[Open the CODAP warm-up](codap-warmup.html)
+
+## Excel warm-up
+
+**For the partner using Excel.** Turn the COMPAS file into a table named `data` and compute counts and base rates by `c_charge_degree` with COUNTIFS and AVERAGEIFS. About 5 minutes.
+[Open the Excel warm-up](excel-warmup.html)
+
+## CODAP grouping: exact counts
+
+**For the partner using CODAP, after the warm-up.** Group the case table and use formulas to get exact numbers: base rates by group (Part A, Exercise 1) and one confusion matrix per group on test rows (Part B, Exercise 2). About 10 minutes.
+[Open the CODAP grouping tutorial](codap-grouping.html)
+
+## Colab first run
+
+**For everyone (Exercise 3).** Open the class notebook in Google Colab, run its cells one at a time, and check your numbers against it. No coding needed. About 5 minutes.
+[Open the Colab first run](colab-first-run.html)
+
+## Datasets
+
+All classroom files are in the course repository's [datasets folder](https://github.com/acintron-cc/hon-2501-03/tree/main/datasets). The warm-up uses [compas_classroom.csv](https://github.com/acintron-cc/hon-2501-03/blob/main/datasets/compas_classroom.csv) (click **Download raw file**).

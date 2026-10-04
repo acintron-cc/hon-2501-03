@@ -1,6 +1,6 @@
 # Classroom files: three models to compare
 
-Built by `add_predictions.py` (seed `42`) from the `datasets/<name>_sample.csv` files. Each `<name>_classroom.csv` keeps every original column unchanged and adds the columns below at the end.
+Prepared by the instructor from public versions of each dataset, with the models fitted using seed `42`. Each `<name>_classroom.csv` keeps every original column unchanged and adds the columns below at the end.
 
 **Compute every metric on the test rows only: filter to `split == "test"`.** The models were fitted on the train rows, so train rows flatter them.
 
@@ -37,6 +37,7 @@ The Reweighing weights are not in these files: computing them from the group × 
 - Target `two_year_recid`: `label = 1` means `Recidivated` (rearrested within two years). **Here `label = 1` is a harm, not a benefit.** A *higher* selection rate means more people are flagged as likely to be rearrested.
 - Group column: `race_group` (new). `African-American` and `Caucasian` are kept from `race`; `Asian`, `Hispanic`, `Native American` and `Other` are pooled into `Other`. That pool mixes very different groups, so hand exercises can use just African-American and Caucasian, as in ProPublica's analysis.
 - Second attribute: `sex`, already in the file.
+- **Known limitation:** the rows come from ProPublica's two-year recidivism file, which keeps people screened after April 1, 2014 only if they were rearrested. That over-counts `label = 1`: Barenstein (2019, [arXiv:1906.04711](https://arxiv.org/abs/1906.04711)) estimates the true two-year rate at about 36% rather than 45%. Base rates are therefore inflated; false positive and false negative rates are barely affected. `label = 1` also records a new arrest, not necessarily a new crime.
 
 ## `german_credit_classroom.csv`
 

@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HON-2501-03 · Course materials</title>
+<style>
+  /* Colours from tutorials/styles.scss. Text pairs are at least 4.5:1:
+     #16202A on #FFFFFF 16.48:1, #0B6E84 on #FFFFFF 5.87:1, #16202A on #EEF5F7 14.94:1, #0B6E84 on #EEF5F7 5.32:1.
+     #0F8BA6 and #E0622E are used only for borders. */
+  :root {
+    --text-dark: #16202A;
+    --link-teal: #0B6E84;
+    --accent-teal: #0F8BA6;
+    --warn-orange: #E0622E;
+    --tint: #EEF5F7;
+  }
+  body {
+    margin: 0;
+    background: #FFFFFF;
+    color: var(--text-dark);
+    font-family: "Source Sans Pro", "Segoe UI", Calibri, Arial, sans-serif;
+    font-size: 1.125rem;
+    line-height: 1.5;
+  }
+  main {
+    max-width: 44rem;
+    margin: 0 auto;
+    padding: 2.5rem 1rem 3rem;
+  }
+  h1 {
+    font-size: 2rem;
+    line-height: 1.2;
+    margin: 0 0 0.25rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 4px solid var(--warn-orange);
+  }
+  .subtitle { margin: 0.5rem 0 2rem; }
+  ul.cards { list-style: none; margin: 0; padding: 0; }
+  ul.cards li {
+    background: var(--tint);
+    border-left: 6px solid var(--accent-teal);
+    padding: 1rem 1.25rem;
+    margin: 0 0 1rem;
+  }
+  ul.cards h2 { font-size: 1.25rem; margin: 0 0 0.25rem; }
+  ul.cards p { margin: 0; }
+  a { color: var(--link-teal); text-decoration: underline; }
+  a:focus-visible { outline: 3px solid var(--text-dark); outline-offset: 2px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>HON-2501-03 · Course materials</h1>
+  <p class="subtitle">Responsible AI, section 03, Fall 2026.</p>
+  <ul class="cards">
+    <li>
+      <h2><a href="tutorials/index.html">Tool tutorials</a></h2>
+      <p>Step-by-step slides for CODAP, Excel and the Colab notebook (Algorithmic Fairness, Session 1).</p>
+    </li>
+    <li>
+      <h2><a href="https://colab.research.google.com/github/acintron-cc/hon-2501-03/blob/main/notebooks/fairness_lesson.ipynb">Class notebook in Colab</a></h2>
+      <p>Open the notebook, choose File → Save a copy in Drive, then run the cells one at a time.</p>
+    </li>
+    <li>
+      <h2><a href="https://github.com/acintron-cc/hon-2501-03/tree/main/datasets">Datasets on GitHub</a></h2>
+      <p>The classroom CSV files and a README describing each one.</p>
+    </li>
+  </ul>
+</main>
+</body>
+</html>

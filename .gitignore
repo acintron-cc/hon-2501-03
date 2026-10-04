@@ -226,3 +226,6 @@ __marimo__/
 .DS_Store
 ~$*.xlsx
 ~$*.pptx
+
+# Quarto tutorials: keep reveal.js files (the Python template ignores dist/)
+!tutorials/**/dist/
