@@ -199,7 +199,7 @@
 <section id="part-a-step-1-of-5-group-the-table" class="slide level2">
 <h2>Part A · Step 1 of 5: Group the table</h2>
 <p>Drag the <code>c_charge_degree</code> column heading to the <strong>left edge</strong> of the case table.</p>
-<!-- ![](media/codap-grouping/partA_step1.png){.r-stretch fig-alt="The CODAP case table split in two: on the left a group part with one row each for F and M, on the right the people. c_charge_degree is now the only column of the left part."} -->
+<img data-src="media/codap-grouping/partA_step1.png" class="r-stretch" alt="The CODAP case table split in two: on the left a group part with one row each for F and M, on the right the people. c_charge_degree is now the only column of the left part.">
 <p><strong>You should see:</strong> the table splits: one row per group on the left (F and M), the people on the right.</p>
 <aside class="notes">
 <p>The left part’s title bar becomes yellow and names the grouping, e.g.&nbsp;c_charge_degrees (2 cases).</p>
@@ -218,7 +218,7 @@
 <section id="part-a-step-2-of-5-add-a-column-n" class="slide level2">
 <h2>Part A · Step 2 of 5: Add a column n</h2>
 <p>In the <strong>left part</strong>, click <strong>+</strong> to add a column, type <code>n</code> as its name, and press Enter.</p>
-<!-- ![](media/codap-grouping/partA_step2.png){.r-stretch fig-alt="The left (group) part of the table with a new, empty column named n next to c_charge_degree."} -->
+<img data-src="media/codap-grouping/partA_step2.png" class="r-stretch" alt="The left (group) part of the table with a new, empty column named n next to c_charge_degree.">
 <p><strong>You should see:</strong> a new, empty column named n in the left part.</p>
 <aside class="notes">
 <p>The + is on the yellow title bar of the left part.</p>
@@ -238,7 +238,7 @@
 <h2>Part A · Step 3 of 5: Count the people</h2>
 <p>Click the <code>n</code> heading → <strong>Edit Formula…</strong>, type this formula, then click <strong>Apply</strong>:</p>
 <pre><code>count()</code></pre>
-<!-- ![](media/codap-grouping/partA_step3.png){.r-stretch fig-alt="The left part of the table with the n column showing 1949 for F and 1051 for M."} -->
+<img data-src="media/codap-grouping/partA_step3.png" class="r-stretch" alt="The left part of the table with the n column showing 1949 for F and 1051 for M.">
 <p><strong>You should see:</strong> F 1949, M 1051.</p>
 <aside class="notes">
 <p>In the group part, count() counts the people in each group.</p>
@@ -258,7 +258,7 @@
 <h2>Part A · Step 4 of 5: Count label = 1</h2>
 <p>In the left part, add a column named <code>positives</code> with this formula:</p>
 <pre><code>count(label, label=1)</code></pre>
-<!-- ![](media/codap-grouping/partA_step4.png){.r-stretch fig-alt="The left part of the table with a positives column showing 983 for F and 382 for M, next to n."} -->
+<img data-src="media/codap-grouping/partA_step4.png" class="r-stretch" alt="The left part of the table with a positives column showing 983 for F and 382 for M, next to n.">
 <p><strong>You should see:</strong> F 983, M 382.</p>
 <aside class="notes">
 <p>Read it as: count the rows where label equals 1.</p>
@@ -279,8 +279,8 @@
 <p>In the left part, add a column named <code>base_rate</code> with this formula. It uses the two columns you just made:</p>
 <pre><code>positives / n</code></pre>
 <p>The base rate is the share of the group with label = 1, so it is positives divided by n.</p>
-<!-- ![](media/codap-grouping/partA_step5.png){.r-stretch fig-alt="The left part of the table with columns n, positives and base_rate: F 1949, 983, 0.5044; M 1051, 382, 0.3635."} -->
-<p><strong>You should see:</strong> F 0.504, M 0.363.</p>
+<img data-src="media/codap-grouping/partA_step5.png" class="r-stretch" alt="The left part of the table with columns n, positives and base rate: F 1949, 983, 0.5044; M 1051, 382, 0.3635.">
+<p><strong>You should see:</strong> F 0.504, M 0.363 (0.5044 and 0.3635 with 4 decimals, as in the picture).</p>
 <aside class="notes">
 <p>CODAP may round the display to 0.5 and 0.36; the precision tip comes two slides later.</p>
 <style type="text/css">
@@ -321,7 +321,7 @@
 <h2>Tip: show more decimals</h2>
 <p>CODAP may show base_rate as 0.5 and 0.36.</p>
 <p>Click the <code>base_rate</code> heading → <strong>Edit Attribute Properties…</strong> → set <strong>Precision</strong> to 4.</p>
-<!-- ![](media/codap-grouping/partA_precision.png){.r-stretch fig-alt="The Edit Attribute Properties window for base_rate with Precision set to 4; behind it base_rate shows 0.5044 for F and 0.3635 for M."} -->
+<img data-src="media/codap-grouping/partA_precision.png" class="r-stretch" alt="The Attribute Properties window for base_rate, with the Precision list open and 4 selected; behind it, base rate shows 0.5044 for F and 0.3635 for M.">
 <p><strong>You should see:</strong> 0.5044 and 0.3635.</p>
 <aside class="notes">
 <p>These match the Part B recording, which shows base rate with 4 decimals.</p>

@@ -51,7 +51,7 @@ Part A has no screenshots yet; the steps are text only.
 
 Drag the `c_charge_degree` column heading to the **left edge** of the case table.
 
-<!-- ![](media/codap-grouping/partA_step1.png){.r-stretch fig-alt="The CODAP case table split in two: on the left a group part with one row each for F and M, on the right the people. c_charge_degree is now the only column of the left part."} -->
+![](media/codap-grouping/partA_step1.png){.r-stretch fig-alt="The CODAP case table split in two: on the left a group part with one row each for F and M, on the right the people. c_charge_degree is now the only column of the left part."}
 
 **You should see:** the table splits: one row per group on the left (F and M), the people on the right.
 
@@ -63,7 +63,7 @@ The left part's title bar becomes yellow and names the grouping, e.g. c_charge_d
 
 In the **left part**, click **+** to add a column, type `n` as its name, and press Enter.
 
-<!-- ![](media/codap-grouping/partA_step2.png){.r-stretch fig-alt="The left (group) part of the table with a new, empty column named n next to c_charge_degree."} -->
+![](media/codap-grouping/partA_step2.png){.r-stretch fig-alt="The left (group) part of the table with a new, empty column named n next to c_charge_degree."}
 
 **You should see:** a new, empty column named n in the left part.
 
@@ -79,7 +79,7 @@ Click the `n` heading → **Edit Formula…**, type this formula, then click **A
 count()
 ```
 
-<!-- ![](media/codap-grouping/partA_step3.png){.r-stretch fig-alt="The left part of the table with the n column showing 1949 for F and 1051 for M."} -->
+![](media/codap-grouping/partA_step3.png){.r-stretch fig-alt="The left part of the table with the n column showing 1949 for F and 1051 for M."}
 
 **You should see:** F 1949, M 1051.
 
@@ -95,7 +95,7 @@ In the left part, add a column named `positives` with this formula:
 count(label, label=1)
 ```
 
-<!-- ![](media/codap-grouping/partA_step4.png){.r-stretch fig-alt="The left part of the table with a positives column showing 983 for F and 382 for M, next to n."} -->
+![](media/codap-grouping/partA_step4.png){.r-stretch fig-alt="The left part of the table with a positives column showing 983 for F and 382 for M, next to n."}
 
 **You should see:** F 983, M 382.
 
@@ -113,9 +113,9 @@ positives / n
 
 The base rate is the share of the group with label = 1, so it is positives divided by n.
 
-<!-- ![](media/codap-grouping/partA_step5.png){.r-stretch fig-alt="The left part of the table with columns n, positives and base_rate: F 1949, 983, 0.5044; M 1051, 382, 0.3635."} -->
+![](media/codap-grouping/partA_step5.png){.r-stretch fig-alt="The left part of the table with columns n, positives and base rate: F 1949, 983, 0.5044; M 1051, 382, 0.3635."}
 
-**You should see:** F 0.504, M 0.363.
+**You should see:** F 0.504, M 0.363 (0.5044 and 0.3635 with 4 decimals, as in the picture).
 
 ::: notes
 CODAP may round the display to 0.5 and 0.36; the precision tip comes two slides later.
@@ -143,7 +143,7 @@ CODAP may show base_rate as 0.5 and 0.36.
 
 Click the `base_rate` heading → **Edit Attribute Properties…** → set **Precision** to 4.
 
-<!-- ![](media/codap-grouping/partA_precision.png){.r-stretch fig-alt="The Edit Attribute Properties window for base_rate with Precision set to 4; behind it base_rate shows 0.5044 for F and 0.3635 for M."} -->
+![](media/codap-grouping/partA_precision.png){.r-stretch fig-alt="The Attribute Properties window for base_rate, with the Precision list open and 4 selected; behind it, base rate shows 0.5044 for F and 0.3635 for M."}
 
 **You should see:** 0.5044 and 0.3635.
 
