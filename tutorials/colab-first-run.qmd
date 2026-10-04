@@ -6,7 +6,7 @@ format:
     theme: [default, styles.scss]
     width: 1280
     height: 720
-    slide-number: true
+    slide-number: false
     controls: true
     progress: true
     navigation-mode: linear
@@ -23,7 +23,7 @@ lang: en
 - Goal: run the class notebook and compare its numbers with your own (Exercise 3).
 - Time: about 5 minutes. Have your Exercise 1–3 numbers ready.
 
-**How to move:** right arrow key or space bar. Esc shows all slides.
+**How to move:** right arrow key or space bar. Esc shows all pages.
 
 ::: notes
 No student has used a notebook before. Stress that nothing they click here can break the class copy.
@@ -38,7 +38,7 @@ Open this link: [https://colab.research.google.com/github/acintron-cc/hon-2501-0
 **You should see:** “Algorithmic Fairness: class notebook” and a **Sign in** button at the top right.
 
 ::: notes
-The link opens in a new tab, so students can keep these slides open.
+The link opens in a new tab, so students can keep these pages open.
 :::
 
 ## Step 2 of 8: Sign in if asked

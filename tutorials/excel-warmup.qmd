@@ -6,7 +6,7 @@ format:
     theme: [default, styles.scss]
     width: 1280
     height: 720
-    slide-number: true
+    slide-number: false
     controls: true
     progress: true
     navigation-mode: linear
@@ -22,7 +22,7 @@ lang: en
 - Compute each group's **base rate**: the share of the group with label = 1.
 - Time: about 5 minutes. Recorded in Excel for Mac; Windows differences are in brackets.
 
-**How to move:** press the right arrow key or the space bar for the next slide. Press Esc to see all slides.
+**How to move:** press the right arrow key or the space bar for the next page. Press Esc to see all pages.
 
 ::: notes
 Everyone does this warm-up on COMPAS, all rows. c_charge_degree is not a protected attribute, so students can learn the tool on numbers they can check.
@@ -47,7 +47,7 @@ Choose **File → Open**, select `compas_classroom.csv` in your Downloads folder
 **You should see:** the data opens, with the column names in row 1 and one person per row.
 
 ::: notes
-If the whole file lands in column A, see the troubleshooting slide (regional settings use ;).
+If the whole file lands in column A, see the troubleshooting page (regional settings use ;).
 :::
 
 ## Step 2 of 9: Save as an Excel Workbook
@@ -190,7 +190,7 @@ Numbers recomputed from compas_classroom.csv, all 3000 rows.
 | A long decimal like 0.50436121 | That's fine | It rounds to 0.504 |
 
 ::: notes
-The #NAME? case is the most common. Curly quotes come from copying out of Word; the copy button on these slides gives straight quotes.
+The #NAME? case is the most common. Curly quotes come from copying out of Word; the copy button on these pages gives straight quotes.
 :::
 
 ## Next: Exercise 1

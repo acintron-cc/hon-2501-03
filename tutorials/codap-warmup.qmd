@@ -6,7 +6,7 @@ format:
     theme: [default, styles.scss]
     width: 1280
     height: 720
-    slide-number: true
+    slide-number: false
     controls: true
     progress: true
     navigation-mode: linear
@@ -22,7 +22,7 @@ lang: en
 - Read the **base rate** for each group: the share of the group with label = 1.
 - Time: about 5 minutes.
 
-**How to move:** press the right arrow key or the space bar for the next slide. Press Esc to see all slides.
+**How to move:** press the right arrow key or the space bar for the next page. Press Esc to see all pages.
 
 ::: notes
 Everyone does this warm-up on COMPAS, all rows. c_charge_degree is not a protected attribute, so students can learn the tool on numbers they can check.
@@ -95,7 +95,7 @@ Open **Measure** and tick **Count**.
 **You should see:** 1949 above the F bar and 1051 above the M bar.
 
 ::: notes
-These are the group sizes (n). Do not tick Percent; see the troubleshooting slide.
+These are the group sizes (n). Do not tick Percent; see the troubleshooting page.
 :::
 
 ## Step 6 of 7: Colour by the outcome

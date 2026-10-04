@@ -8,7 +8,7 @@ format:
 lang: en
 ---
 
-Step-by-step slide tutorials for Session 1, one step per slide. In each pair, partners use different tools: one uses **CODAP**, the other **Excel**. Find the tutorials for your tool below. Everyone does the Colab tutorial at the end. Move through the slides with the arrow keys or the space bar.
+Step-by-step tutorials for Session 1, one step per page. In each pair, partners use different tools: one uses **CODAP**, the other **Excel**. Find the tutorials for your tool below. Everyone does the Colab tutorial at the end. Move through the pages with the arrow keys or the space bar.
 
 ## CODAP warm-up
 

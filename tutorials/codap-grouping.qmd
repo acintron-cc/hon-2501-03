@@ -6,7 +6,7 @@ format:
     theme: [default, styles.scss]
     width: 1280
     height: 720
-    slide-number: true
+    slide-number: false
     controls: true
     progress: true
     navigation-mode: linear
@@ -23,7 +23,7 @@ Get exact counts in CODAP's case table with formulas, practising on `compas_clas
 - **Part A · Base rates by group** (Exercise 1): n, positives and base_rate for each group. About 5 minutes.
 - **Part B · One confusion matrix per group** (Exercise 2): TP, FN, FP and TN for each group, on test rows. About 5 minutes.
 
-**How to move:** right arrow key or space bar. Esc shows all slides.
+**How to move:** right arrow key or space bar. Esc shows all pages.
 
 ::: notes
 Students practise on the warm-up file and column, then repeat with their own dataset and protected attribute.
@@ -118,7 +118,7 @@ The base rate is the share of the group with label = 1, so it is positives divid
 **You should see:** F 0.504, M 0.363 (0.5044 and 0.3635 with 4 decimals, as in the picture).
 
 ::: notes
-CODAP may round the display to 0.5 and 0.36; the precision tip comes two slides later.
+CODAP may round the display to 0.5 and 0.36; the precision tip comes two pages later.
 :::
 
 ## Careful: use the left part
@@ -149,6 +149,18 @@ Click the `base_rate` heading → **Edit Attribute Properties…** → set **Pre
 
 ::: notes
 These match the Part B recording, which shows base rate with 4 decimals.
+:::
+
+## End of Part A
+
+You now have n, positives and base_rate for each group: the numbers you need for Exercise 1.
+
+Keep the table grouped: Part B starts from it.
+
+[Optional: watch all the Part A steps in one silent video (about 2 min)](media/codap-grouping/CODAP_grouping_partA_labeled.mp4){target="_blank"}. Everything in the video is in the steps above.
+
+::: notes
+The Part A video is 2 min 14 s; its text version is in media/codap-grouping/README_CODAP_partA_video.md.
 :::
 
 ## Part B · One confusion matrix per group {.divider}
